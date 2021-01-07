@@ -6,8 +6,8 @@ use Symfony\Component\Console\Command\Command;
 
 /**
  * Class ConsoleCommandHelper
- * @package console\commands
  * Methods of convert using in ConsoleCalculate
+ * @package console\commands
  */
 class ConsoleCommandHelper extends Command
 {
@@ -31,9 +31,9 @@ class ConsoleCommandHelper extends Command
     ];
 
     /**
+     * Convert arabian numeral to roman.
      * @param $number
      * @return string
-     * Convert arabian numeral to roman.
      */
     public static function convertToRoman($number)
     {
@@ -49,11 +49,11 @@ class ConsoleCommandHelper extends Command
     }
 
     /**
+     * Converting roman numeral to arabian, and next step calculate.
      * @param $romanX
      * @param $romanY
      * @param $operator
      * @return int|null
-     * Converting roman numeral to arabian, and next step calculate.
      */
     public static function convertToArabian($romanX, $romanY, $operator)
     {
