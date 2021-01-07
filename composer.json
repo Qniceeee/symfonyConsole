@@ -1,10 +1,13 @@
 {
     "require": {
-        "symfony/console": "^5.2"
+        "symfony/console": "^5.2.*@dev"
     },
     "autoload": {
         "psr-4": {
             "console\\" : "console/"
         }
+    },
+    "scripts": {
+        "console": "php config.php"
     }
 }
