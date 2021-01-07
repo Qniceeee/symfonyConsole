@@ -2,6 +2,7 @@
 <?php
 
 require __DIR__.'/vendor/autoload.php';
+
 use console\commands\ConsoleCalculate;
 use Symfony\Component\Console\Application;
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace console\commands;
 
 
@@ -13,21 +14,19 @@ class ConsoleCalculate extends Command
 
     protected function configure()
     {
-      $this->setName('calculate')
-          ->setDescription('some roman calculate')
-          ->addArgument(
-              'x',
-              InputArgument::REQUIRED
-          )->addArgument(
-              'operator',
-              InputArgument::REQUIRED
-          )
-          ->addArgument(
-              'y',
-              InputArgument::REQUIRED
-          )
-          ;
-
+        $this->setName('calculate')
+            ->setDescription('some roman calculate')
+            ->addArgument(
+                'x',
+                InputArgument::REQUIRED
+            )->addArgument(
+                'operator',
+                InputArgument::REQUIRED
+            )
+            ->addArgument(
+                'y',
+                InputArgument::REQUIRED
+            );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -35,13 +34,12 @@ class ConsoleCalculate extends Command
         $x = $input->getArgument('x');
         $y = $input->getArgument('y');
         $operator = $input->getArgument('operator');
-        if ($operator == '+' | $operator == '-'){
+        if ($operator == '+' | $operator == '-') {
             $resultRomans = new ConsoleCommandHelper();
-            $arabian = $resultRomans->convertToArabian($x,$y,$operator);
+            $arabian = $resultRomans->convertToArabian($x, $y, $operator);
             $roman = $resultRomans->convertToRoman($arabian);
-            $output->writeln($roman);
+            $output->writeln($roman . "($arabian)");
         }
         return Command::SUCCESS;
-
     }
 }

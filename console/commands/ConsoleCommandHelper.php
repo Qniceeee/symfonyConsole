@@ -33,7 +33,8 @@ class ConsoleCommandHelper extends Command
         return $resultRoman;
     }
 
-    public function convertToArabian($romanX, $romanY, $operator){
+    public function convertToArabian($romanX, $romanY, $operator)
+    {
         $romans = $this->numerals;
         $resultX = 0;
         $resultY = 0;
@@ -58,6 +59,4 @@ class ConsoleCommandHelper extends Command
         }
         return $final;
     }
-
-
 }
