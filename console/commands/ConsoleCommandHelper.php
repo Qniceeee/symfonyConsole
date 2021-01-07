@@ -55,7 +55,7 @@ class ConsoleCommandHelper extends Command
      * @param $operator
      * @return int|null
      */
-    public static function convertToArabian($romanX, $romanY, $operator)
+    public static function convertToArabianAndCalculate($romanX, $romanY, $operator)
     {
         $romans = self::NUMERALS;
         $resultX = 0;
