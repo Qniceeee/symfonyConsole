@@ -22,23 +22,35 @@ class ConsoleCommandHelper extends Command
         'I' => 1
     ];
 
+    /**
+     * @param $number
+     * @return string
+     */
     public static function convertToRoman($number)
     {
         $numerals = self::NUMERALS;
         $resultRoman = "";
+
         foreach ($numerals as $key => $value) {
             $resultRoman .= str_repeat($key, $number / $value);
             $number %= $value;
         }
+
         return $resultRoman;
     }
 
+    /**
+     * @param $romanX
+     * @param $romanY
+     * @param $operator
+     * @return int|null
+     */
     public static function convertToArabian($romanX, $romanY, $operator)
     {
         $romans = self::NUMERALS;
         $resultX = 0;
         $resultY = 0;
-        $final = null;
+        $result = null;
 
         foreach ($romans as $key => $value) {
             while (strpos($romanX, $key) === 0) {
@@ -46,18 +58,23 @@ class ConsoleCommandHelper extends Command
                 $romanX = substr($romanX, strlen($key));
             }
         }
+
         foreach ($romans as $key => $value) {
             while (strpos($romanY, $key) === 0) {
                 $resultY += $value;
                 $romanY = substr($romanY, strlen($key));
             }
         }
+
         if ($operator == '+') {
-            $final = $resultX + $resultY;
+            $result = $resultX + $resultY;
         }
+
         if ($operator == '-') {
-            $final = $resultX - $resultY;
+            $result = $resultX - $resultY;
         }
-        return $final;
+
+        return $result;
     }
+
 }

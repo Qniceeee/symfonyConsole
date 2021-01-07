@@ -34,11 +34,18 @@ class ConsoleCalculate extends Command
         $x = $input->getArgument('x');
         $y = $input->getArgument('y');
         $operator = $input->getArgument('operator');
+
         if ($operator == '+' | $operator == '-') {
             $arabian = ConsoleCommandHelper::convertToArabian($x, $y, $operator);
             $roman = ConsoleCommandHelper::convertToRoman($arabian);
             $output->writeln($roman . "($arabian)");
+
+            return Command::SUCCESS;
+        } else {
+            $output->writeln('Неверная операция');
+
+            return Command::FAILURE;
         }
-        return Command::SUCCESS;
     }
+
 }
