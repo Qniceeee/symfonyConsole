@@ -4,8 +4,16 @@ namespace console\commands;
 
 use Symfony\Component\Console\Command\Command;
 
+/**
+ * Class ConsoleCommandHelper
+ * @package console\commands
+ * Methods of convert using in ConsoleCalculate
+ */
 class ConsoleCommandHelper extends Command
 {
+    /**
+     * Map for convert methods
+     */
     const NUMERALS = [
         'M' => 1000,
         'CM' => 900,
@@ -25,6 +33,7 @@ class ConsoleCommandHelper extends Command
     /**
      * @param $number
      * @return string
+     * Convert arabian numeral to roman.
      */
     public static function convertToRoman($number)
     {
@@ -44,6 +53,7 @@ class ConsoleCommandHelper extends Command
      * @param $romanY
      * @param $operator
      * @return int|null
+     * Converting roman numeral to arabian, and next step calculate.
      */
     public static function convertToArabian($romanX, $romanY, $operator)
     {

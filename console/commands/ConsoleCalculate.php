@@ -2,7 +2,6 @@
 
 namespace console\commands;
 
-
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -41,11 +40,12 @@ class ConsoleCalculate extends Command
             $output->writeln($roman . "($arabian)");
 
             return Command::SUCCESS;
-        } else {
+        }
+
             $output->writeln('Неверная операция');
 
             return Command::FAILURE;
-        }
+
     }
 
 }
