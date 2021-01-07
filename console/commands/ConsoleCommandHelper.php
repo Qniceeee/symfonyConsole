@@ -38,14 +38,14 @@ class ConsoleCommandHelper extends Command
     public static function convertToRoman($number)
     {
         $numerals = self::NUMERALS;
-        $resultRoman = "";
+        $result = "";
 
         foreach ($numerals as $key => $value) {
-            $resultRoman .= str_repeat($key, $number / $value);
+            $result .= str_repeat($key, $number / $value);
             $number %= $value;
         }
 
-        return $resultRoman;
+        return $result;
     }
 
     /**
