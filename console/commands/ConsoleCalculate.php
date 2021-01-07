@@ -35,9 +35,8 @@ class ConsoleCalculate extends Command
         $y = $input->getArgument('y');
         $operator = $input->getArgument('operator');
         if ($operator == '+' | $operator == '-') {
-            $resultRomans = new ConsoleCommandHelper();
-            $arabian = $resultRomans->convertToArabian($x, $y, $operator);
-            $roman = $resultRomans->convertToRoman($arabian);
+            $arabian = ConsoleCommandHelper::convertToArabian($x, $y, $operator);
+            $roman = ConsoleCommandHelper::convertToRoman($arabian);
             $output->writeln($roman . "($arabian)");
         }
         return Command::SUCCESS;

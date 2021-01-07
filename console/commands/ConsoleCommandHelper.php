@@ -6,7 +6,7 @@ use Symfony\Component\Console\Command\Command;
 
 class ConsoleCommandHelper extends Command
 {
-    public $numerals = [
+    const NUMERALS = [
         'M' => 1000,
         'CM' => 900,
         'D' => 500,
@@ -22,9 +22,9 @@ class ConsoleCommandHelper extends Command
         'I' => 1
     ];
 
-    public function convertToRoman($number)
+    public static function convertToRoman($number)
     {
-        $numerals = $this->numerals;
+        $numerals = self::NUMERALS;
         $resultRoman = "";
         foreach ($numerals as $key => $value) {
             $resultRoman .= str_repeat($key, $number / $value);
@@ -33,12 +33,13 @@ class ConsoleCommandHelper extends Command
         return $resultRoman;
     }
 
-    public function convertToArabian($romanX, $romanY, $operator)
+    public static function convertToArabian($romanX, $romanY, $operator)
     {
-        $romans = $this->numerals;
+        $romans = self::NUMERALS;
         $resultX = 0;
         $resultY = 0;
         $final = null;
+
         foreach ($romans as $key => $value) {
             while (strpos($romanX, $key) === 0) {
                 $resultX += $value;
